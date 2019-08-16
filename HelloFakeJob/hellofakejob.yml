@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hellokubernetesjob-failure
+spec:
+  template:
+    spec:
+      containers:
+      - name: hellokubernetesjob
+        image: nebbiaregistry.azurecr.io/samples/hellokubernetesjob
+      restartPolicy: OnFailure
+  backoffLimit: 4
